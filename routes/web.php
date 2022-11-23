@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware' => 'auth'], function() {
 //ホーム
 Route::get('/', 'HomeController@index')->name('home');
 //一覧ページ
@@ -24,3 +24,7 @@ Route::post('/folders/{id}/tasks/create', 'TaskController@create');
 //タスクの編集機能
 Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');
 Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');
+});
+
+//認証機能
+Auth::routes();
