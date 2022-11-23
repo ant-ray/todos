@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
+//ホーム
+Route::get('/', 'HomeController@index')->name('home');
+//一覧ページ
 Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 //フォルダの新規作成機能
 Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
